@@ -19,6 +19,6 @@ window.on('close', function(){
 });
 
 setInterval(function(){
-  console.log("Node.js event loop alive here" + new Date().toString());
+  console.log("Node.js event loop alive here " + new Date().toString());
 }, 500);
 

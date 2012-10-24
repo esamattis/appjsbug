@@ -4,22 +4,8 @@
   <title>Event loop killer - CSS animations</title>
   <style type="text/css">
     .animation {
-      -moz-animation-duration: 3s;
       -webkit-animation-duration: 3s;
-      -moz-animation-name: slidein;
       -webkit-animation-name: slidein;
-    }
-
-    @-moz-keyframes slidein {
-      from {
-        margin-left:100%;
-        width:300%
-      }
-
-      to {
-        margin-left:0%;
-        width:100%;
-      }
     }
 
     @-webkit-keyframes slidein {
@@ -42,7 +28,7 @@
   <script>
 
     setInterval(function(){
-      console.log("Browser event loop alive here" + new Date().toString());
+      console.log("Browser event loop alive here " + new Date().toString());
     }, 500);
 
     window.onload = function(){
