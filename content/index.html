@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>Event loop killer - CSS animations</title>
+  <style type="text/css">
+    .animation {
+      -moz-animation-duration: 3s;
+      -webkit-animation-duration: 3s;
+      -moz-animation-name: slidein;
+      -webkit-animation-name: slidein;
+    }
+
+    @-moz-keyframes slidein {
+      from {
+        margin-left:100%;
+        width:300%
+      }
+
+      to {
+        margin-left:0%;
+        width:100%;
+      }
+    }
+
+    @-webkit-keyframes slidein {
+      from {
+        margin-left:100%;
+        width:300%
+      }
+
+      to {
+        margin-left:0%;
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <p>Open console in the dev tools and <a href="#" id="start">click here</a>.</p>
+  <h1 id="anim" >Watch me move</h1>
+
+  <script>
+
+    setInterval(function(){
+      console.log("Browser event loop alive here" + new Date().toString());
+    }, 500);
+
+    window.onload = function(){
+      document.getElementById("start").addEventListener("click", function(){
+        document.getElementById("anim").className = "animation";
+      }, false);
+    };
+
+  </script>
+</body>
+</html>
